@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Issue</title>
+</head>
+<body>
+    <h1>Issue {{ issue.number }}: {{ issue.title }}</h1>
+    <p>{{ issue.body }}</p>
+    <p>Link to the issue on GitHub: <a href="{{ issue.html_url }}" target="_blank">{{ issue.html_url }}</a></p>
+    
+    <form action="{{ url_for('start_function', repo_name=repo_name, issue_number=issue.number) }}" method="POST">
+        <input type="hidden" name="issue_number" value="{{ issue.number }}">
+        <button type="submit">Start</button>
+    </form>
+</body>
+</html>
