@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Bounty Issues</title>
+</head>
+<body>
+    <h1>Bounty Issues for Repository: {{ repo_name }}</h1>
+    <ul>
+        {% for issue in issues %}
+        <li>
+            <a href="{{ issue.html_url }}" target="_blank">{{ issue.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
