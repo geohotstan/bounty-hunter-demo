@@ -1,14 +1,28 @@
 #! /usr/bin/env python3
+import os
 from typing import Dict
+
 from flask import Flask, render_template, request, redirect, url_for
 from github import Github, Issue
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 g = Github()
+gt = os.getenv("GT", None)
 cache: Dict[str, Issue.Issue] = {}
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        github_token = request.form.get("input_data")
+        g.__init__(gt) if github_token == "test" else g.__init__(github_token) 
+        return redirect(url_for("welcome"))
+    return render_template("home.html")
+
+@app.route("/welcome", methods=["GET", "POST"])
+def welcome():
     if request.method == "POST":
         repo_name = request.form["repo_name"]
         repo_name = "geohotstan/SolidGoldMagikarp" if repo_name == "test" else repo_name
