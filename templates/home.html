@@ -5,10 +5,17 @@
 </head>
 <body>
     <h1>Home Page</h1>
+    
     <form method="POST">
-        <label for="input_data">Enter Yout Github Token:</label>
+        <label for="input_data">Enter Your Github Token:</label>
         <input type="text" id="input_data" name="input_data">
         <button type="submit">Submit</button>
     </form>
+    
+    {% if error_message %}
+    <div class="error">
+        <p>{{ error_message }}</p>
+    </div>
+    {% endif %}
 </body>
 </html>
