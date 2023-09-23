@@ -1,22 +1,23 @@
-**GitHub Backend**
+***Bugs for Cash***
+![Mr Bounty](https://github.com/geohotstan/bounty-hunter-demo/assets/97581271/034b6eb4-d79a-4b03-a878-313ede53f603)
 
-**Issues**
-- GitHub Issues are used as a bounty tracker.
-- Issues tagged as "bounty" are tracked and displayed on the site.
+**Bounty Tracker**
 
-**Repo**
-- The repository is automatically forked upon a user joining the bounty.
+**Uses GitHub Issues.**
+"bounty" tagged issues are highlighted on our platform.
+Repository Management
 
-**Actions**
-- GitHub CI is used as basic filtering for bounty submissions.
+**Auto-forks upon user's bounty participation.**
+Submission Filtering
 
-**Site Frontend**
+**Utilizes GitHub CI for initial assessment.**
+User Experience
 
-Minimize the user's interaction with the GitHub interface.
+**Aims for minimal GitHub interaction for users.**
+Bounty Disbursement
 
-**Payment**
-- Payout of the bounty is handled on the site upon closing the issue.
+**Managed on-site once the issue is resolved.**
+Submission Evaluation
 
-**Evaluation**
-- Automate the evaluation of submissions using CI (unit tests) and other tools (maybe LLMs?) to rate the responses before human review.
-- Create a clean interface for code reviewers (automatic branching and open code in VSCode).
+Integration of CI (unit tests) and potential LLM tools for pre-human review assessment.
+Streamlined interface for reviewers, with auto-branching and VSCode integration.
