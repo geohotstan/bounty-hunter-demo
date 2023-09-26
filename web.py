@@ -24,7 +24,8 @@ def index():
         try:
             github_token = request.form.get("input_data")
             auth = Auth.Token(gt) if github_token == "test" else Auth.Token(github_token)
-            user = g.__init__(auth=auth).get_user()
+            g.__init__(auth=auth)
+            user = g.get_user()
             cache["user"] = user
             user.login # TODO check if actually needed
             return redirect(url_for("welcome"))
@@ -34,10 +35,10 @@ def index():
 
 @app.route("/welcome", methods=["GET", "POST"])
 def welcome():
-    if (c := site_router()) is not None: return c
+    if "user" not in cache: return redirect(url_for("index"))
     if request.method == "POST":
         repo_name = request.form["repo_name"]
-        if repo_name == "test": repo_name = "magikarpusesplash/SolidGoldMagikarp"  
+        if repo_name == "test": repo_name = "magikarpusespash/SolidGoldMagikarp"  
         try: 
             repo = g.get_repo(repo_name)
             cache['repo'] = repo
@@ -66,7 +67,7 @@ def start_function(repo_name, issue_number):
     # automatically fork the repo using repo_name
     user, repo = cache['user'], cache['repo']
     g.get_user()
-    repo.create_fork()
+    # repo.create_fork()
 
     # git clone https://github.com/your-username/repo_name.git
 
